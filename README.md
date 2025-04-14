@@ -16,3 +16,4 @@ HTML, CSS, JavaScript 등 프론트엔드부터 Java, Spring Boot 등의 백엔�
 - 교육기관: [송파여성인력개발센터](https://songpa.seoulwomanup.or.kr/songpa/main/main.do)
 - 교육 과정: JAVA&Spring 백엔드 개발자과정
 - 작성자: 김시은
+- 📖 자세한 개념 정리와 이론 설명은 [Tistory 블로그](https://scene-inventory.tistory.com/category/웹개발)에서 확인하실 수 있습니다.
