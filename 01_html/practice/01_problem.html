@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1번 문제</title>
+</head>
+<body>
+    <form action="#" method="get">
+
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <label> 1. 납품자명 : </label>
+            <input type="text" name="name"><br><br>
+            <label> 2. email : </label>
+            <input type="email" name="email" placeholder="answer@naver.com"><br><br>
+            <label> 3. 홈페이지 : </label>
+            <input type="url" name="url" placeholder="https://"><br><br>
+            <label> 4. 지역 : </label>
+            <select name="local">
+                <option value="seoul">서울</option>
+                <option value="busan" selected>부산</option>
+                <option value="daejeon">대전</option>
+            </select>
+            <br>
+        </fieldset>
+        <fieldset>
+            <legend>납품 정보</legend>
+            <ul>
+                <li><label> 상품명 : </label>
+                    <input type="text" name="product">
+                </li>
+                <br><br>
+                <li><label>납품수량 : </label>
+                    <input type="text" name="count" placeholder="최소 100">
+                </li>
+                <br><br>
+                <li>
+                    <label>납품등급 : </label>
+                    <input type="range" name="grade" value="50">
+                </li>
+                <br><br>
+                <li>
+                    <label>기타사항 : </label>
+                    <textarea name="contents" rows="5">
+                    </textarea>
+                </li>
+                <br>       
+            </ul>
+        </fieldset>
+        <br>
+
+        <input type="submit" value="send message">
+    </form>
+</body>
+</html>

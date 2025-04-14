@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2번 문제</title>
+</head>
+<body>
+    <form action="#" method="get">
+
+        <label>고객명 : </label>
+        <input type="text" name="name">
+        <br><br>
+        <label>전화번호 : </label>
+        <input type="tel" name="phone">
+        <br><br>
+        <label>E-mail : </label>
+        <input type="email" name="email">
+        <br><br>
+        <label>피자선택 : </label>
+        <select name="pizza">
+            <option value="" selected disabled hidden>피자를 선택하세요</option>
+            <option value="bulgogi">불고기피자</option>
+            <option value="potato">포테이토피자</option>
+            <option value="sweetpotato">고구마피자</option>
+        </select>
+
+        <fieldset>
+            <legend>피자 사이즈</legend>
+            <input id="Small" type="radio" name="size" value="S">
+            <label for="Small">Small</label>
+            <br><br>
+            <input id="Medium" type="radio" name="size" value="M">
+            <label for="Medium">Medium</label>
+            <br><br>
+            <input id="Large" type="radio" name="size" value="L">
+            <label for="Large">Large</label>
+            <br><br>
+        </fieldset>
+        <fieldset>
+            <legend>토핑 선택</legend>
+            <input id="베이컨" type="checkbox" name="topping" value="bacon">
+            <label for="베이컨">베이컨</label>
+            <br><br>
+            <input id="cheese" type="checkbox" name="topping" value="cheese">
+            <label for="cheese">치즈</label>
+            <br><br>
+            <input id="onion" type="checkbox" name="topping" value="onion">
+            <label for="onion">양파</label>
+            <br><br>
+            <input id="mushroom" type="checkbox" name="topping" value="mushroom">
+            <label for="mushroom">버섯</label>
+            <br><br>
+        </fieldset>
+        <br>
+
+        <label>희망배송시간 : </label>
+        <input type="time" name="order time">
+        <br><br>    
+        <label>배송 시 요청사항 : </label>
+        <textarea name="contents" rows="3">
+        </textarea>
+        <br><br>
+
+        <input type="submit" value="주문하기">
+        <br>
+
+    </form>
+</body>
+</html>
