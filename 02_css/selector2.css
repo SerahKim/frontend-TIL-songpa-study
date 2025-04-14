@@ -1,0 +1,93 @@
+/* 속성값과 일치하는 태그, 요소 선택 */
+div[name=name2] {
+    background: orangered;
+}
+
+/* 속성 안의 값이 접주도사로 특정 값을 단어로 포함하는 객체 선택 */
+/* 즉, name1이라는 단어를 포함하고 있는 모든 객체 선택*/
+div[name~=name1]{
+    background: yellow;
+}
+
+/* 속성 안의 값이 특정 값으로 끝나는(접미사) 객체 선택 */
+div[class$=class]{
+    color: white;
+}
+
+/* 속성 안의 값이 특정 값을 포함하는 객체 선택 */
+div[class*=div]{
+    background: yellow;
+    color: red;
+}
+
+/* 자손 선택자 */
+#testdiv>h4 {
+    background: hotpink;
+}
+
+/* 후손 선택자 */
+#testdiv ul {
+    background: yellow;
+}
+
+/* 동일한 요소 사용 가능 */
+#testdiv ul {
+    color: red;
+}
+
+/* 형제관계 선택자(동위 선택자) */
+#div-test1 {
+    background : red;
+}
+
+/* 해당 요소 바로 다음에 있는 특정 타입의 요소를 선택 */
+#div-test1 + div {
+    background: yellow;
+}
+
+/* 해당 요소 뒤에 있는 특정 다입의 모든 요소를 선택 */
+/* #div-test2 ~ div {
+    background: purple;
+} */
+
+#active-test, #hover-test{
+    width: 300px;
+    height: 300px;
+    background: orangered;
+}
+
+/* 클릭하면 적용되는 css */
+#active-test:active {
+    background: yellow;
+    color: white;
+}
+
+/* 마우스를 해당 영역 올리면 적용 되는 css */
+#hover-test:hover {
+    cursor: pointer;
+    background: cyan;
+    color: purple;
+    font: 40px bold;
+}
+
+input[type=checkbox]:checked {
+    width: 20px;
+    height: 20px;
+}
+
+#userId:focus, #userPwd:focus {
+    background: green;
+}
+
+option:disabled {
+    background: red;
+    color: white;
+}
+
+option:enabled {
+    background: yellowgreen;
+}
+
+input:disabled {
+    background: blue;
+}
