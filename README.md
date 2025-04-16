@@ -9,7 +9,7 @@ HTML, CSS, JavaScript 등 프론트엔드부터 Java, Spring Boot 등의 백엔�
 
 - [01_html](./01_html): HTML 기초
 - [02_css](./02_css): CSS 레이아웃과 스타일링
-- [03_js](./03_js): JavaScript 문법 및 로직
+- [03_js](<./03_javascipt(core)>): JavaScript 문법 및 로직
 
 ## 🙌 기타 정보
 
