@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 문제</title>
+    <style>
+        #header {
+            background: blue;
+        }
+
+        #nav {
+            background:red;
+        }
+
+        #section {
+            background:green;
+        }
+
+        #article1 {
+            background:yellowgreen;
+        }
+
+        #article2 {
+            background:rgb(254, 172, 199);
+        }
+
+        #article3 {
+            background:cyan;
+        }
+
+        #aside {
+            background:wheat;
+        }
+
+        #footer {
+            background:purple;
+        }
+
+        .header-size1 {
+            width: 800px;
+            height: 80px;
+        }
+
+        .nav-size1 {
+            width: 150px;
+            height:400px;
+        }
+
+        .section-size1 {
+            width: 500px;
+            height: 400px;
+        }
+
+        .article-size1{
+            width: 400px;
+            height: 120px;
+        }
+
+        .aside-size1 {
+            width: 150px;
+            height:400px;
+        }
+
+        .footer-size1 {
+            width: 800px;
+            height: 50px;
+        }
+
+        .nav-layout1 {
+            float: left;
+        }
+
+        .section-layout1 {
+            float: left;
+        }
+
+        .article-layout1 {
+            margin: auto;
+        }
+
+        .aside-layout1 {
+            float: left;
+        }
+
+        .footer-layout1 {
+            clear: both;
+        }
+
+        /* 2번 문제*/
+        .nav-size2 {
+            width: 700px;
+            height:40px;
+        }
+
+        .section-size2 {
+            width: 650px;
+            height: 400px;
+        }
+
+        .article-size2 {
+            width: 400px;
+            height: 120px;
+        }
+
+        .aside-size2 {
+            width: 150px;
+            height:400px;
+        }
+
+        .footer-size2 {
+            width: 800px;
+            height: 50px;
+        }
+
+
+        .nav-layout2 {
+            margin-left: 40px;
+            margin-bottom:-10px;
+
+        }
+
+        .section-layout1 {
+            float: left;
+        }
+
+        .article-layout1 {
+            margin: auto;
+        }
+
+        .aside-layout1 {
+            float: left;
+        }
+
+        .footer-layout1 {
+            clear: both;
+        }
+
+        .text{
+            font-weight: bold;
+            font-size: 27px;
+        }
+    </style>
+</head>
+<body>
+    <h1>페이지 레이아웃 설정-문제 1</h1>
+    <header id="header" class="text header-size1">header</header>
+    <nav id="nav" class="text nav-size1 nav-layout1">nav</nav>
+    <section id="section" class="text section-size1 section-layout1">section
+        <article id="article1" class="text article-size1 article-layout1">article</article>
+        <article id="article2" class="text article-size1 article-layout1">article</article>
+        <article id="article3" class="text article-size1 article-layout1">article</article>
+    </section>
+    <aside id="aside" class="text aside-size1 aside-layout1">aside</aside>
+    <footer id="footer" class="text footer-size1 footer-layout1">footer</footer>
+
+    <h1>페이지 레이아웃 설정-문제 2</h1>
+    <header id="header" class="text header-size1">
+        header
+        <div id="nav" class="text nav-size2 nav-layout2">nav</div>
+    </header>
+    <section id="section" class="text section-size2 section-layout1">section
+        <article id="article1" class="text article-size2 article-layout1">article</article>
+        <article id="article2" class="text article-size2 article-layout1">article</article>
+        <article id="article3" class="text article-size2 article-layout1">article</article>
+    </section>
+    <aside id="aside" class="text aside-size2 aside-layout1">aside</aside>
+    <footer id="footer" class="text footer-size2 footer-layout1">footer</footer>
+</body>
+</html>

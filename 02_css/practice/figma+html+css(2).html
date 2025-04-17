@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>figma+html+css(2)</title>
+    <style>
+      .idpwd_diagram {
+        background: white;
+        width: 278px;
+        height: 40px;
+        border-radius: 8px;
+        border: 1px;
+        border-color: #c3c3c3;
+        border-style: solid;
+      }
+
+      .login_diagram {
+        background: #17b57e;
+        width: 278px;
+        height: 48px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .login_style {
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .border_style {
+        width: 16px;
+        border: 1px;
+        border-color: #d3d5d7;
+        border-style: solid;
+        transform: rotate(90deg);
+      }
+
+      .text_style1 {
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+      .display_style {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        margin-left: 20px;
+      }
+
+      .bc_img {
+        background-image: url(../../01_html/sample/image/img17.png);
+        width: 300px;
+        height: 250px;
+        border-radius: 8px;
+        position: relative;
+      }
+
+      .diagram_style4 {
+        width: 300px;
+        height: 56px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        position: absolute;
+        bottom: 0px;
+      }
+
+      .text_style2 {
+        color: white;
+        font-weight: 700;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+
+      .circle_style {
+        background: #d9d9d9;
+        width: 24px;
+        height: 24px;
+        border-radius: 999px;
+        position: absolute;
+        right: 16px;
+        top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>문제 15</h4>
+    <h2>로그인</h2>
+    <p>아이디</p>
+    <div class="idpwd_diagram"></div>
+    <br />
+    <p>비밀번호</p>
+    <div class="idpwd_diagram"></div>
+    <br />
+    <div class="login_diagram">
+      <p class="login_style">로그인</p>
+    </div>
+    <hr />
+
+    <h4>문제 16</h4>
+    <p>사이트를 더 안전하고 편리하게 이용하세요.</p>
+    <div class="login_diagram">
+      <p class="login_style">로그인</p>
+    </div>
+    <div class="display_style">
+      <p class="text_style1">아이디 찾기</p>
+      <div class="border_style"></div>
+      <p class="text_style1">비밀번호 찾기</p>
+      <div class="border_style"></div>
+      <p class="text_style1">회원가입</p>
+    </div>
+    <hr />
+
+    <h4>문제 17</h4>
+    <div class="bc_img">
+      <div class="circle_style"></div>
+      <div class="diagram_style4">
+        <p class="text_style2">새로운 시작!</p>
+        <p class="text_style2">김작가</p>
+      </div>
+    </div>
+    <hr />
+  </body>
+</html>

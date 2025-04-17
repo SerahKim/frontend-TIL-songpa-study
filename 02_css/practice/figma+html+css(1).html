@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>figma+html+css(1)</title>
+    <style>
+        .diagram-style1 {
+            background: #ffb9b9;
+            margin-top: 16px;
+            margin-left: 16px;
+        }
+
+        .diagram-style2 {
+            background: #ca785c;
+            margin-top: 16px;
+            margin-left: 16px;
+        }
+
+        .diagram-style3 {
+            background: white;
+        }
+
+        .text-style1 {
+            font-weight: 600;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+
+        .text-style2 {
+            color: #138A79;
+            font-weight: 700;
+            line-height: 100%;
+            letter-spacing: -0.5%;
+        }
+
+        .text-style3 {
+            color: white;
+            font-weight: 700;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+
+        .text-style4 {
+            font-weight: 400;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+
+        .img-style1 {
+            background-image: url(../../01_html/sample/image/img7.png);
+            width: 278px;
+            height: 120px;
+            width: 278;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .img-style2 {
+            background-image: url(../../01_html/sample/image/img8.png);
+            width: 160px;
+            height: 172px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .img-style3 {
+            background-image: url(../../01_html/sample/image/img11.png);
+            width: 320px;
+            height: 320px;
+        }
+
+        .circle1 {
+            background: #E3FF92;
+            top: 16px;
+            right: 16px;
+        }
+
+        .circle2 {
+            background: #92f8ff;
+            bottom: 16px;
+            left: 16px;
+        }
+
+        .circle3 {
+            background: #FF9292;
+            bottom: 16px;
+            right: 16px;
+        }
+
+        .circle4 {
+            display: inline-block;
+            background: #D9D9D9;
+        }
+
+        #style1 {
+            width: 278px;
+            height: 160px;
+        }
+
+        #style2 {
+            width: 160px;
+            height: 278px;
+        }
+
+        #style3 {
+            width: 160px;
+            height: 160px;
+            border-radius: 9999px;
+        }
+
+        #style4 { 
+            width: 278px;
+            height: 160px;
+            border-radius: 8px;
+        }
+
+        #style5 {
+            width: 160px;
+            height: 278px;
+            border-radius: 16px;
+        }
+
+        #style6 {
+            width: 160px;
+            height: 160px;
+            border-radius: 9999px;
+        }
+
+        #style7 {
+            width: 278px;
+            height: 160px;
+            border-radius: 8px;
+        }
+
+        #style8 {
+            width: 160px;
+            height: 240px;
+            border-radius: 4px;
+        }
+
+        #style9 {
+            width: 278px;
+            height: 80px;
+        }
+
+        #style10 {
+            width: 320px;
+            height: 80px;
+        }
+
+        #style11 {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+        }
+
+        #style12 {
+            width: 250px;
+            height: 225px;
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+        }
+
+        #style13 {
+            width: 248px;
+            height: 75px;
+            
+        }
+
+        #stye14 {
+            width: 24px;
+            height: 24px;
+            border-radius: 999px;
+        }
+
+        #style15 {
+            width: 120px;
+            height: 170px;
+            border-radius: 8px;
+        }
+
+        #text1 {
+            size: 16px;
+            margin-left: 16px;
+        }
+
+        #text2 {
+            size: 14px;
+        }
+
+        #text3 {
+            size: 24px;
+        }
+
+        #text4 {
+            size: 12px;
+        }
+
+        
+
+
+        
+    </style>
+</head>
+<body>
+    <h4>문제 1</h4>
+    <div id='style1' class="diagram-style1"></div>
+    <hr>
+
+    <h4>문제 2</h4>
+    <div id='style2' class="diagram-style1"></div>
+    <hr>
+
+    <h4>문제 3</h4>
+    <div id='style3' class="diagram-style1"></div>
+    <hr>
+
+    <h4>문제 4</h4>
+    <div id='style4' class="diagram-style2"></div>
+    <p id="text1" class="text-style1">안녕하세요!</p>
+    <hr>
+
+    <h4>문제 5</h4>
+    <div id='style5' class="diagram-style2"></div>
+    <p id="text1" class="text-style2">반갑습니다.</p>
+    <hr>
+
+    <h4>문제 6</h4>
+    <div id='style6' class="diagram-style2"></div>
+    <p id="text1" class="text-style1" style="padding-left: 50px;">프로필</p>
+    <hr>
+
+    <h4>문제 7</h4>
+    <div id='style7' class="diagram-style2">
+        <div class="img-style1"></div>
+        <div id="text1" class="text-style3"style="padding-top: 10px;"">안녕하세요!</div>
+    </div>
+    <hr>
+
+    <h4>문제 8</h4>
+    <div id='style8' class="diagram-style2">
+        <div class="img-style2"></div>
+        <div id="text1" class="text-style3" style="margin-left: 8px; margin-top: 10px;">인테리어란?</div>
+        <br>   
+        <span id="text2" class="text-style3" style="margin-left: 8px;">김작가</span>
+        <span id="text2" class="text-style3" style="margin-left: 14px;">2024.01.01</span>
+    </div>
+    <hr>
+
+    <h4>문제 9</h4>
+    <div id='style9' class="diagram-style2">
+        <div id="text3" class="text-style3" style="margin-left: 105px; padding-top: 26px;">한여름</div>
+    </div>
+    <hr>
+
+    <h4>문제 10</h4>
+    <div id='style10' class="diagram-style2">
+        <div style="padding-top: 30px;">
+            <span id="text3" class="text-style3" style="padding-left: 16px;">봄</span>
+            <span id="text3" class="text-style3" style="padding-left: 16px;">여름</span>
+            <span id="text3" class="text-style3" style="padding-left: 16px;">겨울</span>
+            <span id="text3" class="text-style3" style="padding-left: 16px;">가을</span>
+        </div>
+    </div>
+    <hr>
+
+    <h4>문제 11</h4>
+    <div class="img-style3">
+        <div id="text3" class="text-style3" style="padding-left: 16px; padding-top: 16px;">인테리어 디자인</div>
+    </div>
+    <hr>
+
+    <h4>문제 12</h4>
+    <div class="img-style3" style="position: relative;">
+            <div id="text3" class="text-style3" style="position: absolute; top: 16px; left: 16px;">인테리어 디자인</div>
+            <div id="style11" class="circle1" style="position: absolute;"></div>            
+            <div id="style11" class="circle2" style="position: absolute;"></div>
+            <div id="style11" class="circle3" style="position: absolute;"></div>        
+    </div>
+    <hr>
+
+    <h4>문제 13</h4>
+    <div id='style12' class="diagram-style1" style="position: relative;">
+        <div id="style13" class="diagram-style3" style="position: absolute; bottom: 0px; margin-left: 1px; margin-right: 2px; margin-bottom: 1px;">
+        <p id="text4" class = "text-style4" style="margin-left: 10px;">
+            안녕하세요. 텍스트입니다.
+        </p>
+        <span id="stye14" class="circle4" style="position: relative; left: 10px; bottom: 2px;""></span>
+        <span id="text4" class="text-style4" style="position: absolute; left: 40px; ">휴양죠</span>
+        </div>
+    </div>
+    <hr
+
+    <h4>문제 14</h4>
+    <div id='style15' class="diagram-style1" style="position: relative;">
+        <span id="stye14" class="circle4" style="position: absolute; right: 10px; bottom: 10px;""></span>
+    </div>
+    <div id="text4" class="text-style4" style="margin-left: 30px; margin-top: 10px;">
+        나른한 점심시간, 밖<br>
+        에서 밥먹기
+    </div>
+    <hr>
+
+</body>
+</html>
