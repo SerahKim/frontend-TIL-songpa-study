@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>01. 자식 노드 탐색</h1>
+    <h3>노드 탐색</h3>
+    <h3>공백 텍스트 노드</h3>
+    <pre>
+        HTML 요소 사이의 스페이스, 탭, 줄바꿈(개행) 등의 공백 문자는 텍스트 노드를 생성한다.
+    </pre>
+
+    <h3>자식 노드 탐색</h3>
+    <ol id="node">
+      <li>
+        Node.prototype.childNotes : 자식노드(요소 노드, 텍스트 노드)를 탐색하여
+        NodeList에 댐아 반환
+      </li>
+      <li>
+        Node.prototype.firstChild : 첫번째 자식 노드(요소 노드, 텍스트 노드)
+        반환
+      </li>
+      <li>
+        Node.prototype.lastChild : 마지막 자식 노드(요소 노드, 텍스트 노드) 반환
+      </li>
+    </ol>
+    <script>
+      const $node = document.getElementById("node"); // 공백도 text node에 포함된다.
+      console.log($node.childNodes);
+      console.log($node.firstChild); // text
+      console.log($node.lastChild); // text
+    </script>
+
+    <ol id="element">
+      <li>
+        Elemnet.prototype.children : 자식 노드 중 요소 노드만 탐색하여
+        HTMLCollection에 담아 반환
+      </li>
+      <li>Elemnet.prototype.firstElementChilde : 첫번째 자식 요소 노드 반환</li>
+      <li>Elemnet.prototype.lastElementChilde : 마지막 자식 요소 노드 반환</li>
+    </ol>
+    <script>
+      const $element = document.getElementById("element");
+      console.log($element.children);
+      console.log($element.firstElementChild);
+      console.log($element.lastElementChild);
+    </script>
+
+    <h3>자식 노드 존재 확인</h3>
+    <ol id="empty">
+      <!--공백 포함-->
+    </ol>
+    <script>
+      const $empty = document.getElementById("empty");
+      console.log($empty.hasChildNodes()); // 텍스트 노드 포함하여 확인
+    </script>
+  </body>
+</html>

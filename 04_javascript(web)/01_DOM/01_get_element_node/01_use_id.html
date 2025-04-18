@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .area {
+        width: 100px;
+        height: 100px;
+        border: 1px solid lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>01. id를 이용한 요소 노드 취득</h1>
+    <div id="area1" class="area">
+      div 영역
+      <p id="area2">p영역</p>
+    </div>
+    <div id="area1" class="area">div 영역</div>
+    <script>
+      // 요소 노드 취득
+      // 해당 아이디를 가진 요소들 중 첫번째 요소만 스타일 속성이 적용된다.
+      // 해당 아이디를 가진 요소를 가져올 때도 첫번째 요소만 가져온다.
+      const $element = document.getElementById("area1");
+      console.log("====area1=====");
+      console.log($element);
+      $element.style.background = "skyblue";
+
+      // id 속성 값 그대로 취득하여 전역 변수를 이용한 접근도 가능하다.
+      area2.style.backgroundColor = "blue";
+
+      // 해당 id 값을 갖는 HTMl 요소가 존재하지 않는 경우 null을 반환한다.
+      const $noElement = document.getElementById("area3");
+      console.log($noElement);
+    </script>
+  </body>
+</html>
