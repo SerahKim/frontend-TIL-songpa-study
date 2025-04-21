@@ -18,7 +18,8 @@
       <li>우유</li>
     </ul>
     <script>
-      //HTMLCollection으로 요소를 가져온다.
+      // li 태그를 HTMLCollection으로 요소를 가져온다.
+      // 해당 script 아래에 있는 태그는 영향을 주지 않음.
       const $lists = document.getElementsByTagName("li");
       console.log($lists);
       console.log($lists.length);
@@ -33,9 +34,10 @@
       [...$lists].forEach((list) => (list.style.color = "blue"));
       Array.from($lists).forEach((list) => (list.style.color = "blue"));
 
-      const $drink = document.getElementById("drink");
-      const $listFromDrink = $drink.getElementsByTagName("li");
-      console.log($listFromDrink);
+      const $drink = document.getElementById("drink"); // id = drink인 요소를 변수 $drink에 할당
+      console.log($drink);
+      const $listFromDrink = $drink.getElementsByTagName("li"); // $drink 중 li 태그를 HTMLCollection 객체에 담아 $listFromDrink에 할당
+      console.log($listFromDrink); // HTMLCollection = [<li>, <li>, <li>]
 
       [...$listFromDrink].forEach((list) => (list.style.color = "red"));
 
