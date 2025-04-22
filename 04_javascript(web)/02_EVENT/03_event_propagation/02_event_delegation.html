@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .highlight {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>02. 이벤트 위임</h1>
+    <pre>
+      이벤트 위임이란 자식 요소 각각에 이벤트 리스너를 다는 대신, 부모 요소 하나에만 이벤트 리스너를 등록하고, 
+      이벤트가 자식 요소에서 발생하면 전파를 통해 부모가 대신 처리하는 방식
+    </pre>
+    <ul id="drink">
+      <li>커피</li>
+      <li>콜라</li>
+      <li>우유</li>
+    </ul>
+    <script>
+      const $drink = document.getElementById("drink");
+      // li 태그 영역을 누르면 하나씩 클릭됨
+      // ul 태그 영역을 누르면 li 영역이 한번에 클릭됨. -> 버블링으로 인해 ul로 이벤트가 전파되었기 때문
+      $drink.addEventListener("click", (e) => {
+        // 이벤트의 타깃이 li태그 영역이면 hightlight 함수가 동작함
+        //ul 영역 클릭 시에는 동작시키고 싶지 않으므로 li인지 확인하는 조건문 걸어줌.
+        if (e.target.matches("li")) highlight(e.target);
+      });
+
+      function highlight(li) {
+        // classList.toggle을 통해 li의 class 중 hightliht라는 class가 없으면 추가, 있으면 제거
+        li.classList.toggle("highlight");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>01.마우스 이벤트</h1>
+
+    <h3>마우스 이벤트 종류</h3>
+    <ul>
+      <li>mousedown/mouesup</li>
+      <li>mouseover/mouesout</li>
+      <li>mousemove</li>
+      <li>click</li>
+      <li>contextmenu</li>
+      <!--우클릭 시 -->
+    </ul>
+
+    <h3>마우스 이벤트 테스트</h3>
+    <button>클릭해보세요</button>
+    <div class="area"></div>
+    <script>
+      const $btn = document.querySelector("button");
+      const $area = document.querySelector(".area");
+
+      $btn.onmousedown = (e) => {
+        // 첫번째 인자 : 삽입할 HTML 문자열의 위치 지정, 두번째 인자 : 삽입할 HTML 문자열
+        // e.button : 어떤 이벤트가 발생하는지 알 수 있음(좌클릭 : 0, 휠클릭 : 1, 우클릭 : 2)
+        $area.insertAdjacentHTML(
+          "afterbegin",
+          "mousedown button=" + e.button + "<br>"
+        );
+      };
+
+      $btn.onmouseup = (e) => {
+        // 첫번째 인자 : 삽입할 HTML 문자열의 위치 지정, 두번째 인자 : 삽입할 HTML 문자열
+        // e.button : 어떤 이벤트가 발생하는지 알 수 있음(좌클릭 : 0, 휠클릭 : 1, 우클릭 : 2)
+        $area.insertAdjacentHTML(
+          "afterbegin",
+          "mouseup button=" + e.button + "<br>"
+        );
+      };
+
+      $btn.onmouseover = (e) => {
+        // 첫번째 인자 : 삽입할 HTML 문자열의 위치 지정, 두번째 인자 : 삽입할 HTML 문자열
+        // e.button : 어떤 이벤트가 발생하는지 알 수 있음(좌클릭 : 0, 휠클릭 : 1, 우클릭 : 2)
+        $area.insertAdjacentHTML(
+          "afterbegin",
+          "mouseover button=" + e.button + "<br>"
+        );
+      };
+
+      $btn.onmouseout = (e) => {
+        // 첫번째 인자 : 삽입할 HTML 문자열의 위치 지정, 두번째 인자 : 삽입할 HTML 문자열
+        // e.button : 어떤 이벤트가 발생하는지 알 수 있음(좌클릭 : 0, 휠클릭 : 1, 우클릭 : 2)
+        $area.insertAdjacentHTML(
+          "afterbegin",
+          "mouseout button=" + e.button + "<br>"
+        );
+      };
+
+      $btn.onclick = (e) => {
+        // 첫번째 인자 : 삽입할 HTML 문자열의 위치 지정, 두번째 인자 : 삽입할 HTML 문자열
+        // e.button : 어떤 이벤트가 발생하는지 알 수 있음(좌클릭 : 0, 휠클릭 : 1, 우클릭 : 2)
+        $area.insertAdjacentHTML(
+          "afterbegin",
+          "click button=" + e.button + "<br>"
+        );
+      };
+
+      $btn.ondblclick = (e) => {
+        // 첫번째 인자 : 삽입할 HTML 문자열의 위치 지정, 두번째 인자 : 삽입할 HTML 문자열
+        // e.button : 어떤 이벤트가 발생하는지 알 수 있음(좌클릭 : 0, 휠클릭 : 1, 우클릭 : 2)
+        $area.insertAdjacentHTML(
+          "afterbegin",
+          "dblclick button=" + e.button + "<br>"
+        );
+      };
+
+      $btn.oncontextmenu = (e) => {
+        // 첫번째 인자 : 삽입할 HTML 문자열의 위치 지정, 두번째 인자 : 삽입할 HTML 문자열
+        // e.button : 어떤 이벤트가 발생하는지 알 수 있음(좌클릭 : 0, 휠클릭 : 1, 우클릭 : 2)
+        $area.insertAdjacentHTML(
+          "afterbegin",
+          "contextmenu button=" + e.button + "<br>"
+        );
+      };
+    </script>
+  </body>
+</html>
