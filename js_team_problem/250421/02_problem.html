@@ -1,0 +1,31 @@
+<!-- 
+        div 영역을 클릭했을 때 배경색이 파란색으로 변경되도록 하시오.
+        +응용) div 영역 클릭했을 때마다 색상이 랜덤으로 변하도록 하시오.
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="area" onclick="changeColor()">클릭하면 색이 변해요.</div>
+  </body>
+  <script>
+    const $area = document.getElementById("area");
+    function getRandomColor() {
+      let colorR = Math.floor(Math.random() * 256);
+      let colorG = Math.floor(Math.random() * 256);
+      let colorB = Math.floor(Math.random() * 256);
+      console.log(colorB);
+      return `rgb(${colorR}, ${colorG}, ${colorB})`;
+    }
+    console.log(getRandomColor());
+
+    function changeColor() {
+      $area.style.backgroundColor = getRandomColor();
+    }
+  </script>
+</html>

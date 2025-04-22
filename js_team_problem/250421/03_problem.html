@@ -1,0 +1,41 @@
+<!-- 1. cat이 dog밑에 오도록 만들어보세요!
+    <ul id="animal">
+        <li>dog</li>
+    </ul>
+2. 구조 분 할당 방법으로 밑의 나라들이 animal아래에 오고, 
+영국은 호주보다 앞쪽에 위치할 수 있도록 해주세요!
+		<ul id="country">
+	    <li>호주</li>
+	    <li>영국</li>
+		</ul>    -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="animal">
+      <li>dog</li>
+    </ul>
+    <ul id="country">
+      <li>호주</li>
+      <li>영국</li>
+    </ul>
+    <script>
+      const $animal = document.getElementById("animal");
+      const $li = document.createElement("li");
+      $li.textContent = "cat";
+
+      $animal.insertBefore($li, null);
+
+      const $country = document.getElementById("country");
+      const [$aus, $eng] = $country.children;
+
+      $animal.append($aus);
+      $animal.append($eng);
+    </script>
+  </body>
+</html>

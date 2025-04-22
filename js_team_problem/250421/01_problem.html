@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="front">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>react</li>
+      <li>Spring</li>
+    </ul>
+    <script>
+      const $front = document.getElementById("front");
+      const $li = document.createElement("li");
+      $li.textContent = "Javascript";
+
+      console.log($front.removeChild($front.lastElementChild));
+
+      $front.insertBefore($li, $front.lastElementChild);
+      console.log($front);
+    </script>
+  </body>
+</html>
