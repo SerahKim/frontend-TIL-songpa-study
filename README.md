@@ -9,7 +9,10 @@ HTML, CSS, JavaScript 등 프론트엔드부터 Java, Spring Boot 등의 백엔�
 
 - [01_html](./01_html): HTML 기초
 - [02_css](./02_css): CSS 레이아웃과 스타일링
-- [03_js](<./03_javascipt(core)>): JavaScript 문법 및 로직
+- [03_javasript(core)](<./03_javascipt(core)>): JavaScript 문법 및 로직
+- [04_javasript(web)](<./04_javascript(web)/>) : 웹에서의 JavaSCript 사용
+- [team_problem](./js_team_problem/) : 팀 문제(자체 제작)
+- [trainig_log](./trainig_log/) : 데일리 교육일지(TIL)
 
 ## 🙌 기타 정보
 
