@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>문제 1</h1>
+    <form name="problem1">
+      <input type="number" name="number" />
+      <button type="submit">클릭</button>
+    </form>
+
+    <script>
+      const $form = document.forms.problem1;
+      $form.onsubmit = function () {
+        let number = this.querySelector("input[name=number]").value;
+        console.log(typeof Number(number));
+        let num = Number(number);
+        alert((num += 10));
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>문제2</h1>
+    <input type="radio" id="naver" />네이버 <br />
+    <input type="radio" id="google" />구글 <br />
+    <input type="radio" id="w3schools" />w3schools
+  </body>
+  <script>
+    const $naver = document.getElementById("naver");
+    const $google = document.getElementById("google");
+    const $w3schools = document.getElementById("w3schools");
+
+    $naver.onclick = () => {
+      location.href = "https://www.naver.com";
+    };
+
+    $google.onclick = () => {
+      location.href = "https://www.google.com";
+    };
+    $w3schools.onclick = () => {
+      location.href = "https://www.w3schools.com";
+    };
+  </script>
+</html>

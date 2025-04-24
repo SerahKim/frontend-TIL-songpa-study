@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>문제 3</h1>
+    <input type="checkbox" id="java" /> Java <br />
+    <input type="checkbox" id="Database" /> Database <br />
+    <input type="checkbox" id="Web" /> Web <br />
+    <button id="click">클릭</button>
+    <script>
+      const $input = document.querySelectorAll("input[type=checkbox]");
+      const $click = document.getElementById("click");
+      console.log($click);
+      $click.addEventListener("click", () => {
+        $input[0].checked = true;
+      });
+    </script>
+  </body>
+</html>
