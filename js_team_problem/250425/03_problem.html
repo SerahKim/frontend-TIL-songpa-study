@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        첫번째 입력에서는 학생의 이름이 공백으로 구분되어 입력되고, 두번째에는 그 학생의 수학 점수가 공백으로 구분되어 주어집니다.
+
+        두 개를 합쳐 학생의 이름이 key이고 value가 수학 점수인 객체를 출력해주세요.
+
+        입력
+        Yujin Hyewon
+        70 100
+
+        출력
+        {'Yujin': 70, 'Hyewon': 100}
+        */
+
+      let name = prompt(
+        "이름을 입력해주세요.(이름의 구분은 공백으로 해주세요. 예) Yugin Hyewon)"
+      );
+
+      let score = prompt(
+        "이름을 입력해주세요.(점수의 구분은 공백으로 해주세요. 예) 70 100)"
+      );
+
+      let nameArr = name.split(" "); // 배열 : ["Yugin", "Hyewon"]
+      let scoreArr = score.split(" ").map(Number); // 배열 : ["70", "100"]
+
+      let obj = {};
+
+      for (let i = 0; i < nameArr.length; i++) {
+        obj[nameArr[i]] = scoreArr[i];
+      }
+
+      console.log(obj);
+    </script>
+  </body>
+</html>
