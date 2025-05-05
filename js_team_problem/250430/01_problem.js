@@ -11,3 +11,25 @@
 (13월 26일이나 2월 45일 같은 날짜는 주어지지 않습니다.)
 */
 
+const date = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+const dayInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+function solution (a, b) {
+
+    let pastDate = 0;
+    let result = 0;
+    let dayIndex = 0;
+
+    for (let i = 1; i <= a -1; i++) {
+        pastDate += dayInMonth[i - 1];
+    }
+
+    result = pastDate + b - 1;
+
+    dayIndex = (3 + result) % 7;
+
+    return date[dayIndex]
+}
+
+console.log(solution(5, 24));
