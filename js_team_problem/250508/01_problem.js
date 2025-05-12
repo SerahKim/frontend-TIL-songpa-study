@@ -31,7 +31,7 @@ function merge(left, right){
   let result = [];
 
   while (left.length && right.length){
-    if (/*빈칸을 채워주세요*/){
+    if (left[0] <= right[0]){
       result.push(left.shift());
     } else {
       result.push(right.shift());

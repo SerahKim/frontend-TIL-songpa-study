@@ -16,7 +16,7 @@ function quickSort(arr){
       right.push(arr[i]);
     }
   }
-  return 
+  return quickSort(left).concat(pivot, quickSort(right));
 }
 
 const array = prompt('배열을 입력하세요').split(' ').map(n => parseInt(n, 10));
