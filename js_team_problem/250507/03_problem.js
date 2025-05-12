@@ -17,7 +17,6 @@ function bubble(arr) {
            }
         }
     }
-
     return result;
 }
      
