@@ -13,39 +13,40 @@
 
 다음 코드의 빈칸을 채워 병합정렬을 완성해 봅시다.
 */
-
 function mergeSort(arr){
-    if (arr.length <= 1){
-      return arr;
-    }
-  
-    const mid = Math.floor(arr.length / 2);
-    const left = arr.slice(0,mid);
-    const right = arr.slice(mid);
-  
-    return merge(mergeSort(left), mergeSort(right));
+  if (arr.length <= 1){
+    return arr;
   }
+
+  const mid = Math.floor(arr.length / 2);
+
+  const left = arr.slice(0,mid); // 0부터 mid-1까지 요소 취득
+  const right = arr.slice(mid); // mid부터 배열요소 끝까지 취득
   
-  function merge(left, right){
-    let result = [];
-  
-    while (/*빈칸을 채워주세요*/ && /*빈칸을 채워주세요*/){
-      if (/*빈칸을 채워주세요*/){
-          result.push(left.shift());
-        } else {
-          result.push(right.shift());
-        }
-      }
-      while (left.length) {
-        /*빈칸을 채워주세요*/
-      }
-      while (right.length) {
-        /*빈칸을 채워주세요*/
-      }
-    
-      return result;
+  // 재귀 호출
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right){
+  let result = [];
+
+  while (left.length && right.length){
+    if (/*빈칸을 채워주세요*/){
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
     }
-    
-    const array = prompt('배열을 입력하세요').split(' ').map(n => parseInt(n, 10));
-    
-    console.log(mergeSort(array));
+  }
+  while (left.length) {
+    result.push(left.shift());
+  }
+  while (right.length) {
+    result.push(right.shift());
+  }
+
+  return result;
+}
+
+const array = prompt('배열을 입력하세요').split(' ').map(n => parseInt(n, 10));
+
+console.log(mergeSort(array));
