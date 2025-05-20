@@ -25,13 +25,11 @@ signs가 [false,false,true] 이므로, 실제 수들의 값은 각각 -1, -2, 3�
 
 function solution(absolutes, signs) {
     let sum = 0;
-
     for (let i = 0; i < signs.length; i++) {
         absolutes[i] = signs[i]? absolutes[i] : -absolutes[i];
 
         sum += absolutes[i];
     }
-
     return sum;
 }
 

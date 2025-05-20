@@ -28,10 +28,10 @@
 */
 
 
-function isTriangle(sides) {
+function solution(sides) {
     sides.sort((a, b) => a - b);
     let result = (sides[2] < sides[0] + sides[1]) ?  1 : 2;
     return result;
 }
 
-console.log(isTriangle([199, 72, 222]));
+console.log(solution([199, 72, 222]));
