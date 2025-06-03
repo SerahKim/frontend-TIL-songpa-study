@@ -4,7 +4,7 @@ const strArr = ["zero", "one", "two", "three", "four", "five", "six", "seven", "
 function solution(s) {
     for (let i = 0; i < strArr.length; i++) {
         if (s.includes(strArr[i])) {
-            s = s.replace(strArr[i], String(i));
+            s = s.replaceAll(strArr[i], String(i));
         }
     }
 
