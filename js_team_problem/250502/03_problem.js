@@ -29,4 +29,4 @@ const people = {
 const value = Object.values(people);
 const noDup = new Set(value);
 
-console.log(noDup.size);
+console.log(noDup.sizez);
