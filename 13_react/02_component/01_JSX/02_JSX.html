@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const style = {
+        backgroundColor: "black",
+        color: "white",
+        padding: "10px", // 기본 단위는 px, 만약 단위를 생략하고 싶다면 숫자, 단위를 넣고 싶다면 문자 타입으로 넣어줘야함
+        cursor: "pointer",
+      };
+
+      const user = {
+        firstName: "Panda",
+        lastName: "kwon",
+        phone: "010-1234-5678",
+      };
+
+      const handleClick = () => {
+        alert("알림이 발생했습니다!");
+      };
+
+      const formatName = (user) => `${user.lastName} ${user.firstName}`;
+
+      const element = (
+        // 최상위 엘리먼트가 두 개 이상이면 에러가 발생한다.
+        // 따라서 빈 태그 필요
+        <>
+          <h2>Hello JSX</h2>
+
+          {/* 표현식 사용, JSX 문법 내에 중괄호를 이용하여 모든 javacript 문법을 넣을 수 있다. */}
+          <h3> 이름 : {formatName(user)}</h3>
+
+          {/* 속성 & 이벤트, handleClick()으로 호출하면 실행과 동시에 alert창이 뜨게 된다. */}
+          <h4 id="title" className="highlight" onClick={handleClick}>
+            클릭 시 알림 발생 (class -&gt; className, onclick -&gt; onClick)
+          </h4>
+
+          {/* 인라인 스타일, HTML에서 style은 문자열이지만, JSX에서는 객체로 사용한다. */}
+          <p style={style}>인라인 스타일이 적용된 텍스트입니다.</p>
+        </>
+      );
+
+      ReactDOM.createRoot(document.getElementById("root")).render(element);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>createElement</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // React.createElement('엘리먼트', '어트리뷰트', '문자열(텍스트 노드)')
+      const greeting = React.createElement(
+        "h1",
+        { className: "greeting" },
+        "Hello React!!"
+      );
+      const reactElement = React.createElement(
+        "h3",
+        { id: "name" },
+        "I'm Panda"
+      );
+
+      // "root" 아이디를 가진 요소를 ReactDOM의 가상 상위인 root로 설정하겠다는 뜻
+      // 내가 만든 greeting을 내보내겠다.
+      ReactDOM.createRoot(document.getElementById("root")).render([
+        greeting,
+        reactElement,
+      ]);
+    </script>
+  </body>
+</html>

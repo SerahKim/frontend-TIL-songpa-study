@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      // 1. 기본 정적 렌더링
+      function BasicRender() {
+        return (
+          <div style={{ border: "1px solid gray", padding: "10px" }}>
+            <h2>정적 렌더링</h2>
+            <h3>지금은 {new Date().toLocaleTimeString()}입니다.</h3>
+          </div>
+        );
+      }
+
+      // 2. 엘리먼트 업데이트(Virtual DOM 체험)
+      function LiveClock() {
+        const [time, setTime] = React.useState(new Date());
+
+        React.useEffect(() => {
+          const timer = setInterval(() => setTime(new Date()), 1000);
+          return () => clearInterval(timer);
+        }, []);
+
+        return (
+          <div style={{ border: "1px solid gray", padding: "10px" }}>
+            <h2>실시간 시계</h2>
+            <h3>현재 시간 : {time.toLocaleTimeString()}</h3>
+          </div>
+        );
+      }
+
+      // 조건부 렌더링
+      function ConditionalMessage() {
+        const answer = parseInt(
+          prompt("리액트가 재미있으신가요?\n1.재미있다. \n2. 어렵다.")
+        );
+
+        const element =
+          answer === 1 ? (
+            <h3>앞으로 점점 재미있어져요~</h3>
+          ) : (
+            <h3>어려워도 화이팅 ^^!</h3>
+          );
+
+        return (
+          <>
+            <h2>조건부 렌더링</h2>
+            {answer ? element : <h4>질문에 답변 입력 중 ...</h4>}
+          </>
+        );
+      }
+
+      // 컴포넌트 합성
+      function App() {
+        return (
+          <>
+            <BasicRender />
+            <LiveClock />
+            <ConditionalMessage />
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render([<App />]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- 
+    바벨 적용 방법(CDN) 
+    1. 바벨 CDN 구문을 추가한다.
+    2. script 태그에 type 속성에 text/babel 속성값을 추가한다.
+     -->
+    <script type="text/babel">
+      function CreateElementComponent() {
+        return React.createElement(
+          "div",
+          null,
+          React.createElement("h1", { className: "greeting" }, "Hello"),
+          React.createElement("h3", null, "JSX 없이 렌더링")
+        );
+      }
+
+      // JSX 방식
+      function JSXComponent() {
+        return (
+          <div>
+            <h1 className="greeting" id="greeting">
+              Hello, JSX!
+            </h1>
+            <h3 id="name">JSX를 활용한 렌더링</h3>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <JSXComponent />
+      );
+    </script>
+  </body>
+</html>

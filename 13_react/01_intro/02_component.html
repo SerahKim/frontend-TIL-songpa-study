@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      /* 1. 클래스형 컴포넌트, 컴포넌트 앞 글자는 반드시 대문자로 시작 */
+      class TitleClass extends React.Component {
+        // 반드시 render()라는 함수를 구현해야 한다.
+        render() {
+          return React.createElement(
+            "h1",
+            { className: "classComponent" },
+            "클래스형 컴포넌트입니다."
+          );
+        }
+      }
+
+      /* 2. 함수형 컴포넌트 */
+      function TitleFunction() {
+        return React.createElement(
+          "h1",
+          { id: "test", claasName: "functionComponent" },
+          "함수형 컴포넌트입니다."
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render([
+        <TitleClass />,
+        <TitleFunction />,
+      ]);
+    </script>
+  </body>
+</html>
