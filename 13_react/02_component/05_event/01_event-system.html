@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class EventButton extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        /* 1. 인라인 함수로 직접 처리하기 */
+        // render() {
+        //   return (
+        //     // class에서는 this를 붙여줘야 한다.
+        //     <button onClick={() => alert("인라인 함수 이벤트 동작 확인")}>
+        //       {this.props.children}
+        //     </button>
+        //   );
+        // }
+
+        /* 2. 클래스 메소드로 따로 정의해서 전달하기 */
+        // onClickHandler = () => alert("외부 함수 이벤트 동작 확인");
+
+        // /* 클래스 내부의 함수(메소드)를 호출할 때는 this.을 반드시 붙여줘야 한다. */
+        // render() {
+        //   return (
+        //     <button onClick={this.onClickHandler}>{this.props.children}</button>
+        //   );
+        // }
+
+        /* 3. component에 이벤트를 props로 전달 후 연결 */
+        render() {
+          // 부모로부터 props를 내려받음
+          const { onClick, children } = this.props;
+
+          // 구조 분해 할당을 해주기 때문에 this.을 붙이지 않아도 된다.
+          return <button onClick={onClick}>{children}</button>;
+        }
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        // <EventButton>이벤트 버튼</EventButton>
+
+        /* 3번 테스트용 버튼 */
+        // props.onClick에 해당 이벤트 전달.
+        // 자식 컴포넌트에서 onClick 사용이 가능해진다.
+        <EventButton onClick={() => alert("props로 이벤트 전달 후 연결 확인")}>
+          버튼
+        </EventButton>
+      );
+    </script>
+  </body>
+</html>

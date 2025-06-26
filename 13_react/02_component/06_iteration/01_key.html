@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      /*
+        배열의 문법
+        arr.map(callback);
+        - callback 함수의 파라미터로 전달된 배열 내 각 요소를 원하는 규칙에 따라 변환 후 그 결과로 새로운 배열 반환
+
+        callback : 새로운 배열 요소를 생성하는 규칙을 담은 함수로 파라미터는 3가지를 가질 수 있다.
+        - currentValue : 현재 처리하고 있는 요소
+        - index: 현재 처리하고 있는 요소의 index 값
+        - array : 현재 처리하고 있는 원본 배열
+      */
+
+      const numbers = [1, 2, 3, 4, 5];
+      const results = numbers.map((num) => num * num);
+      console.log(results);
+
+      const fruit = ["🍓", "🍏", "🥭"];
+      fruit.map((currentValue, index, array) => {
+        console.log(currentValue);
+        console.log(index);
+        console.log(array);
+      });
+
+      function Items({ names }) {
+        return (
+          <ul>
+            {names.map((name) => (
+              <li>{name}</li>
+            ))}
+          </ul>
+        );
+      }
+
+      const names = ["판다", "코알라", "원숭이"];
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <Items names={names} />
+      );
+    </script>
+  </body>
+</html>

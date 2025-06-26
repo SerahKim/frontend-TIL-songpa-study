@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      console.log(React);
+
+      const { useState } = React;
+
+      function Say() {
+        console.log("state값 바뀜?");
+        // useState의 반환값은 길이 2의 배열
+        // 그렇게 반환받은 배열을 [message, setMessage]을 통해 배열 구조 분해 할당을 해준다.
+        // '기본상태'는 state의 초기값이다.
+        /* 
+        message라는 상태(state)와 setter 메소드를 배열 구조분해 할당으로 각각의 변수에 할당한다.
+        */
+        const [message, setMessage] = useState("기본상태");
+        const [color, setColor] = useState("black");
+        const [backgroundColor, setBackgroundColor] = useState("white");
+
+        const onClickEnter = () => setMessage("안녕하세요!");
+        const onClikeLeave = () => setMessage("안녕히 가세요!");
+
+        return (
+          <>
+            <h2>함수형 컴포넌트(useState)</h2>
+            <h3 style={{ color, backgroundColor }}>{message}</h3>
+
+            <button onClick={onClickEnter}>입장</button>
+            <button onClick={onClikeLeave}>퇴장</button>
+
+            <div>
+              <button onClick={() => setColor("red")}>빨간색</button>
+              <button onClick={() => setColor("green")}>초록색</button>
+            </div>
+
+            <div>
+              <button onClick={() => setBackgroundColor("white")}>
+                기본 배경
+              </button>
+              <button onClick={() => setBackgroundColor("black")}>
+                반전 배경
+              </button>
+            </div>
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<Say />);
+    </script>
+  </body>
+</html>

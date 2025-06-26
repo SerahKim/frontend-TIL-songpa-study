@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      /* spread 연산자 */
+      let obj = {
+        prop0: "p0",
+        propr1: "p1",
+        prop2: "p2",
+      };
+
+      let objCopy = { ...obj, prop2: "modify" };
+      console.log(objCopy);
+
+      /* rest parameter */
+      let [a, ...rest] = [1, 2, 3];
+      console.log(a);
+      console.log(rest);
+
+      let { prop1, ...restObj } = { prop1: "a", prop2: "b", prop3: "c" };
+      console.log(prop1);
+      console.log(restObj);
+
+      class ClassEventComponent extends React.Component {
+        state = {
+          message: "",
+        };
+
+        // 화살표 함수는 this를 가지지 않기 때문에 부모요소의 값을 가져와서 동작함.
+        handleChange = (e) => {
+          // e.target = 이벤트가 발생한 요소
+          this.setState({ message: e.target.value });
+        };
+
+        handleClick = () => {
+          alert(this.state.message);
+          this.setState({ message: "" });
+        };
+
+        render() {
+          return (
+            <>
+              <h2>클래스형 컴포넌트 이벤트</h2>
+              <input
+                type="text"
+                placeholder="메세지 입력"
+                value={this.state.message}
+                onChange={this.handleChange}
+              />
+              <button onClick={this.handleClick}>확인</button>
+            </>
+          );
+        }
+      }
+
+      function FunctionEventComponent() {
+        const [username, setUsername] = React.useState("");
+        const [password, setPassword] = React.useState("");
+
+        const handleLogin = () => {
+          alert(`username: ${username}\npassword: ${password}`);
+          setUsername("");
+          setPassword("");
+        };
+
+        return (
+          <>
+            <h2>함수형 컴포넌트 - 개별 상태</h2>
+            <input
+              type="text"
+              name="username"
+              placeholder="아이디"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="text"
+              name="password"
+              placeholder="비밀번호"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button onClick={handleLogin}>로그인</button>
+          </>
+        );
+      }
+
+      /* 하나의 객체로 상태 관리 */
+      function FunctionEventComponent2() {
+        const [form, setForm] = React.useState({ username: "", password: "" });
+        const { username, password } = form;
+
+        /* 이벤트가 발생한 input 태그의 name 속성 값을 활용하여 하나의 핸들러 메소드로 처리할 수 있다. */
+        const handleChange = (e) => {
+          console.log(e.target.name);
+          const changeForm = {
+            // 만약 spread 문법을 사용하지 않으면 마지막 동작만 인식함. (username은 undefined가 나오고 password만 잘 나오게 된다.)
+            ...form, // 스프레드 연산자를 사용해 기존 form 객체의 나머지 프로퍼티 복사
+            [e.target.name]: e.target.value, // 이벤트가 발생한 name과 일치하는 프로터피 값을 value 값으로 수정
+          };
+          setForm(changeForm);
+        };
+
+        const handleLogin = () => {
+          alert(`username: ${username}\npassword: ${password}`);
+          setForm({ username: "", password: "" });
+        };
+
+        return (
+          <>
+            <h2>함수형 컴포넌트 - 객체 기반 상태</h2>
+            <input
+              type="text"
+              name="username"
+              placeholder="아이디"
+              value={username}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="password"
+              placeholder="비밀번호"
+              value={password}
+              onChange={handleChange}
+            />
+            <button onClick={handleLogin}>로그인</button>
+          </>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <ClassEventComponent />
+            <hr />
+            <FunctionEventComponent />
+            <hr />
+            <FunctionEventComponent2 />
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>
