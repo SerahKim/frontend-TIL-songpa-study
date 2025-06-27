@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .container {
+        background: skyblue;
+        width: 100%;
+        height: 100vh; /* 1vh는 화면의 높이 1% */
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header {
+        width: 100%;
+        height: 100px;
+        background: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .content {
+        flex-grow: 1;
+        background: lightgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .todo-list {
+        background: white;
+        width: 500px;
+        border: 1px solid black;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 50px;
+      }
+
+      .todo-list label {
+        margin: 20px;
+      }
+
+      .todo-list button {
+        border: none;
+        background: red;
+        border-radius: 10px;
+        color: white;
+      }
+
+      .append-list button {
+        background: green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        height: 30px;
+      }
+
+      .footer {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        background: black;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" style="text-align: center"></div>
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+
+      function Header() {
+        const [date, setDate] = useState(new Date());
+
+        useEffect(() => {
+          const timer = setInterval(
+            () => setDate(new Date()),
+            1000 * 60 * 60 * 24
+          );
+          return () => clearInterval(timer);
+        });
+
+        return (
+          <div className="header">
+            <h1>오늘의 할일! {date.toLocaleDateString()}</h1>
+          </div>
+        );
+      }
+
+      function ToDoList() {
+        const [toDoList, setToDoList] = useState([]);
+        const [inputToDo, setInputToDo] = useState("");
+        const [nextId, setNextId] = useState(1);
+        const [checked, setCheckBox] = useState();
+
+        const handleChange = (e) => setInputToDo(e.target.value);
+        const handleAdd = () => {
+          if (inputToDo.trim() === "") return;
+          const addToDo = { id: nextId, text: inputToDo };
+
+          setToDoList([...toDoList, addToDo]);
+          setNextId(nextId + 1);
+          setInputToDo("");
+        };
+        const handleRemove = (id) => {
+          const updatedList = toDoList.filter((toDo) => toDo.id !== id);
+          setToDoList(updatedList);
+        };
+
+        return (
+          <div className="content">
+            <p>ToDO-List</p>
+            <div className="todo-list">
+              {toDoList.map((toDo) => (
+                <div key={toDo.id} className="todo-list">
+                  <input
+                    type="checkbox"
+                    id="check-list"
+                    className="checkbox-style"
+                  />
+                  <label htmlFor="check-list">{toDo.text}&nbsp;</label>
+                  <button onClick={() => handleRemove(toDo.id)}>X</button>
+                  <br />
+                  <br />
+                </div>
+              ))}
+            </div>
+            <div className="append-list">
+              <input
+                type="text"
+                value={inputToDo}
+                onChange={handleChange}
+                placeholder=" "
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleAdd();
+                  }
+                }}
+              />
+              <button onClick={handleAdd}>추가하기</button>
+            </div>
+          </div>
+        );
+      }
+
+      function Footer() {
+        return (
+          <div className="footer">
+            <p>Copyright 2025. team-ohgiraffers all rights reserved.</p>
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <Header />
+            <ToDoList />
+            <Footer />
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>
