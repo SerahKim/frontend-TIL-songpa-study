@@ -118,12 +118,11 @@
         const [toDoList, setToDoList] = useState([]);
         const [inputToDo, setInputToDo] = useState("");
         const [nextId, setNextId] = useState(1);
-        const [checked, setCheckBox] = useState();
 
         const handleChange = (e) => setInputToDo(e.target.value);
         const handleAdd = () => {
           if (inputToDo.trim() === "") return;
-          const addToDo = { id: nextId, text: inputToDo };
+          const addToDo = { id: nextId, text: inputToDo, checked: false };
 
           setToDoList([...toDoList, addToDo]);
           setNextId(nextId + 1);
@@ -133,19 +132,33 @@
           const updatedList = toDoList.filter((toDo) => toDo.id !== id);
           setToDoList(updatedList);
         };
+        const handleCheckBox = (id) => {
+          const updatedList = toDoList.map((toDo) =>
+            toDo.id === id ? { ...toDo, checked: !toDo.checked } : toDo
+          );
+          setToDoList(updatedList);
+        };
 
         return (
           <div className="content">
             <p>ToDO-List</p>
             <div className="todo-list">
               {toDoList.map((toDo) => (
-                <div key={toDo.id} className="todo-list">
+                <div key={toDo.id}>
                   <input
                     type="checkbox"
-                    id="check-list"
-                    className="checkbox-style"
+                    id="check-list-${toDo.id}"
+                    checked={toDo.checked}
+                    onChange={() => handleCheckBox(toDo.id)}
                   />
-                  <label htmlFor="check-list">{toDo.text}&nbsp;</label>
+                  <label
+                    htmlFor="check-list-${toDo.id}"
+                    style={{
+                      textDecoration: toDo.checked ? "line-through" : "none",
+                    }}
+                  >
+                    {toDo.text}&nbsp;
+                  </label>
                   <button onClick={() => handleRemove(toDo.id)}>X</button>
                   <br />
                   <br />
