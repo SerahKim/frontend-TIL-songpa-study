@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+
+      // SearchBox input에서 입력한 값을 button을 누르면 imgUrl 변경
+      function SearchBox({ setImgUrl }) {
+        const [emojiName, setEmojiName] = useState("");
+
+        const onClickHandler = () => {
+          fetch("https://api.github.com/emojis")
+            .then((response) => response.json())
+            .then((data) => {
+              setImgUrl(data[emojiName]);
+            });
+        };
+
+        return (
+          <>
+            <input
+              type="text"
+              name="emojiName"
+              value={emojiName}
+              onChange={(e) => setEmojiName(e.target.value)}
+            />
+            <button onClick={onClickHandler}>검색하기</button>
+          </>
+        );
+      }
+
+      // SearchBox로부터 넘어온 키 값과 일치하는 value값을 찾아서 imgUrl 리턴
+      function ImageBox({ imgUrl }) {
+        return <>{imgUrl && <img src={imgUrl} />}</>;
+      }
+
+      function App() {
+        const [imgUrl, setImgUrl] = useState("");
+
+        return (
+          <>
+            <SearchBox setImgUrl={setImgUrl} />
+            <br />
+            <ImageBox imgUrl={imgUrl} />
+          </>
+        );
+      }
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>

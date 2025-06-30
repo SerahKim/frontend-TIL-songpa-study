@@ -25,6 +25,8 @@
       function MessagePrinter({ message }) {
         console.log("랜터링");
 
+        // 클래스형의 componentDidMount와 동일한 역할 (componentDidMount와 마찬가지로 useEffect는 랜더링 이후 동작)
+        // 힘수형 컴포넌트의 경우 비동기 처리는 이곳에서 한다.
         useEffect(() => {
           console.log("랜더링 이후 동작");
         });
