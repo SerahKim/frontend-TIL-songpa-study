@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+    <script src="https://unpkg.com/redux@4.2.0/dist/redux.js"></script>
+    <script src="https://unpkg.com/react-redux@8.0.4/dist/react-redux.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      /*
+      store 하나당 한개의 reducer만 가질 수 없다.
+      하나의 reducer는 하나의 상태만 관리하고 있으므로 이를 해결하기 위해 combineReducers를 통해 합쳐서 관리한다.
+      */
+      const { createStore, combineReducers } = Redux;
+      const { useSelector, useDispatch, Provider } = ReactRedux;
+
+      const countInitState = {
+        currentCount: 5,
+      };
+
+      const activationInitState = {
+        isActivity: false,
+      };
+
+      const userInitState = {
+        name: "",
+        email: "",
+        phone: "",
+      };
+
+      // countInitState을 관리하는 reducer 함수
+      const rootReducer = combineReducers({
+        countReducer: (state = countInitState, action) => {
+          const { type, payload } = action;
+          switch (type) {
+            case "INCREMENT":
+              return {
+                // 계산한 값을 새로운 객체에 다시 담아준 뒤 반환한다.
+                currentCount: state.currentCount + payload.incrementValue,
+              };
+            case "DECREMENT":
+              return {
+                currentCount: state.currentCount - payload.decrementValue,
+              };
+            default:
+              return state;
+          }
+        },
+        activationReducer: (state = activationInitState, action) => {
+          const { type } = action;
+          switch (type) {
+            case "TOGGLE":
+              return { isActivity: !state.isActivity };
+            default:
+              return state;
+          }
+        },
+        userReducer: (state = userInitState, { type, payload }) => {
+          switch (type) {
+            case "INPUT":
+              return {
+                ...state,
+                [payload.name]: payload.value,
+              };
+            default:
+              return state;
+          }
+        },
+      });
+
+      const store = createStore(rootReducer);
+
+      function App() {
+        console.log(useSelector((state) => state));
+
+        /* combineReducers를 이용하는 경우 useSelector의 콜백함수를 통해 리듀서별로 관리되는 state를 반환. */
+        // const currentCount = useSelector((state) => state.countReducer.countReducer);와 같은 구문
+        const { currentCount } = useSelector((state) => state.countReducer);
+        const { isActivity } = useSelector((state) => state.activationReducer);
+        const { name, email, phone } = useSelector(
+          (state) => state.userReducer
+        );
+
+        const dispatch = useDispatch();
+
+        const increaseCount = () => {
+          dispatch({
+            type: "INCREMENT",
+            payload: {
+              incrementValue: 10,
+            },
+          });
+        };
+
+        const decreaseCount = () => {
+          dispatch({
+            type: "DECREMENT",
+            payload: {
+              incrementValue: 10,
+            },
+          });
+        };
+
+        const toggleActivation = () => {
+          dispatch({ type: "TOGGLE" });
+        };
+
+        const onChangeHandler = (e) => {
+          dispatch({
+            type: "INPUT",
+            payload: {
+              name: e.target.name,
+              value: e.target.value,
+            },
+          });
+        };
+
+        return (
+          <>
+            <h1>currentCount : {currentCount}</h1>
+            <button onClick={increaseCount}>증가</button>
+            <button onClick={decreaseCount}>감소</button>
+            <br />
+            <h1>isActivity: {isActivity.toString()}</h1>
+            <button onClick={toggleActivation}>Toggle</button>
+            <br />
+            <h1>input control</h1>
+            <label>name: </label>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={onChangeHandler}
+            />
+            <label>email: </label>
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={onChangeHandler}
+            />
+            <label>phone: </label>
+            <input
+              type="text"
+              name="phone"
+              value={phone}
+              onChange={onChangeHandler}
+            />
+            <br />
+            <h3>name: {name}</h3>
+            <h3>email: {email}</h3>
+            <h3>phone: {phone}</h3>
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+    <script src="https://unpkg.com/redux@4.2.0/dist/redux.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      /*
+        [redux]
+        상태관리를 위한 라이브러리이다.
+        app의 상태는 전부 하나의 저장소(store) 안에 있는 객체 트리에 저장된다.
+        상태 트리를 변경하는 유일한 방법은 어떤 행동이 일어날지에 해당하는 action이다.
+        action에 따라 상태를 어떻게 변경할지를 명시하기 위해 함수를 작성하며,
+        이를 reducer 함수라고 한다.
+      */
+      const { createStore } = Redux;
+
+      // reduce 함수
+      function counter(state = 0, action) {
+        /*
+        [action]
+        {
+            type: 'ACTION_NAME', // 필수
+            payload: {name: '판다', age: 5} // 옵션
+        }
+        */
+        // state 변경을 action만 가능하다.
+        switch (action.type) {
+          case "INCREMENT":
+            return state + 1;
+          case "DECREMENT":
+            return state - 1;
+          default:
+            return state;
+        }
+      }
+
+      /* 
+      App의 상태(state)를 보관하는 redux 저장소를 만든다. 
+      변수명은 꼭 store라고 할 필요는 없지만 통상적으로 store라고 한다.
+      */
+      const store = createStore(counter);
+      //   console.log(store);
+
+      /* 
+      스토어의 상태 변화를 구독하여 실행될 콜백 함수를 전달한다.
+      스토어의 상태값이 변화할 때 콜백 함수가 호출된다.
+      */
+      store.subscribe(() => console.log(store.getState()));
+
+      /* 
+      action 객체를 전달하면서 reducer 함수를 호출하는 역할 
+      state의 현재 상태가 리듀서에 자동으로 전달되며 호출된다.
+      action을 넣어 호출하면, 리듀서 함수의 두 번째 인자로 action 값을 전달한다.
+      state를 변경하는 유일한 방법은 dispatch를 통해 리듀서에 action을 보내는 것 뿐이다.
+      */
+      // type만 구조분해 할당 해온 것
+      store.dispatch({ type: "INCREMENT" });
+      store.dispatch({ type: "INCREMENT" });
+      store.dispatch({ type: "DECREMENT" });
+    </script>
+  </body>
+</html>
