@@ -23,8 +23,7 @@
     <div id="root"></div>
     <script type="text/babel">
       /*
-      store 하나당 한개의 reducer만 가질 수 없다.
-      하나의 reducer는 하나의 상태만 관리하고 있으므로 이를 해결하기 위해 combineReducers를 통해 합쳐서 관리한다.
+      store 하나당 한개의 reducer만 가질 수 있다.
       */
       const { createStore, combineReducers } = Redux;
       const { useSelector, useDispatch, Provider } = ReactRedux;
